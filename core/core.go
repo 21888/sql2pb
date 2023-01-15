@@ -361,7 +361,7 @@ type Message struct {
 	Fields  []MessageField
 }
 
-//gen default message
+// gen default message
 func (m Message) GenDefaultMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -388,7 +388,7 @@ func (m Message) GenDefaultMessage(buf *bytes.Buffer) {
 	m.Fields = mOrginFields
 }
 
-//gen add req message
+// gen add req message
 func (m Message) GenRpcAddReqRespMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -427,7 +427,7 @@ func (m Message) GenRpcAddReqRespMessage(buf *bytes.Buffer) {
 
 }
 
-//gen add resp message
+// gen add resp message
 func (m Message) GenRpcUpdateReqMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -464,7 +464,7 @@ func (m Message) GenRpcUpdateReqMessage(buf *bytes.Buffer) {
 	m.Fields = mOrginFields
 }
 
-//gen add resp message
+// gen add resp message
 func (m Message) GenRpcDelReqMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -489,7 +489,7 @@ func (m Message) GenRpcDelReqMessage(buf *bytes.Buffer) {
 	m.Fields = mOrginFields
 }
 
-//gen add resp message
+// gen add resp message
 func (m Message) GenRpcGetByIdReqMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -517,7 +517,7 @@ func (m Message) GenRpcGetByIdReqMessage(buf *bytes.Buffer) {
 	m.Fields = mOrginFields
 }
 
-//gen add resp message
+// gen add resp message
 func (m Message) GenRpcSearchReqMessage(buf *bytes.Buffer) {
 	mOrginName := m.Name
 	mOrginFields := m.Fields
@@ -568,6 +568,7 @@ func (m Message) GenRpcSearchReqMessage(buf *bytes.Buffer) {
 	m.Name = "Search" + mOrginName + "Resp"
 	m.Fields = []MessageField{
 		{Typ: "repeated " + mOrginName, Name: stringx.From(firstWord + mOrginName[1:]).ToCamelWithStartLower(), tag: 1, Comment: stringx.From(firstWord + mOrginName[1:]).ToCamelWithStartLower()},
+		{Typ: "int64", Name: "total", tag: 2, Comment: "total"},
 	}
 	buf.WriteString(fmt.Sprintf("%s\n", m))
 
