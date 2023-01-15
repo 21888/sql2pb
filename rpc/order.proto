@@ -1,0 +1,354 @@
+syntax = "proto3";
+package order;
+option go_package = "./order";
+
+// ------------------------------------
+// Messages
+// ------------------------------------
+
+//--------------------------------orderList--------------------------------
+message OrderList {
+  int64 id = 1; //主键
+  int64 orderAmount = 2; //订单金额
+  string orderNo = 3; //订单编号
+  string platformNo = 4; //平台订单号
+  int64 orderStatus = 5; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+  string attach = 6; //商户自定义字符串
+  string payUrl = 7; //收银台地址
+  int64 creatorTime = 8; //创建时间
+  int64 updatedTime = 9; //更新时间
+  int64 payTime = 10; //完成时间
+  string phone = 11; //下单手机号
+  string upNo = 12; //上游订单号
+  string creatorIp = 13; //下单时的IP
+  string payIp = 14; //支付的IP
+  int64 payType = 15; //支付类型1支付宝 2微信 3银联 4网银 5线下支付 6其他
+  int64 channelType = 16; //channelType
+  string channelId = 17; //通道编号
+  int64 notifyStatus = 18; //回调状态
+  string notifyUrl = 19; //回调地址
+  int64 notifyTime = 20; //回调时间
+  int64 notifyTimes = 21; //回调时长
+  int64 digestionId = 22; //话单ID
+  string otherData = 23; //其余信息
+}
+
+message AddOrderListReq {
+  int64 orderAmount = 1; //订单金额
+  string orderNo = 2; //订单编号
+  string platformNo = 3; //平台订单号
+  int64 orderStatus = 4; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+  string attach = 5; //商户自定义字符串
+  string payUrl = 6; //收银台地址
+  int64 creatorTime = 7; //创建时间
+  int64 updatedTime = 8; //更新时间
+  int64 payTime = 9; //完成时间
+  string phone = 10; //下单手机号
+  string upNo = 11; //上游订单号
+  string creatorIp = 12; //下单时的IP
+  string payIp = 13; //支付的IP
+  int64 payType = 14; //支付类型1支付宝 2微信 3银联 4网银 5线下支付 6其他
+  int64 channelType = 15; //channelType
+  string channelId = 16; //通道编号
+  int64 notifyStatus = 17; //回调状态
+  string notifyUrl = 18; //回调地址
+  int64 notifyTime = 19; //回调时间
+  int64 notifyTimes = 20; //回调时长
+  int64 digestionId = 21; //话单ID
+  string otherData = 22; //其余信息
+}
+
+message AddOrderListResp {
+}
+
+message UpdateOrderListReq {
+  int64 id = 1; //主键
+  int64 orderAmount = 2; //订单金额
+  string orderNo = 3; //订单编号
+  string platformNo = 4; //平台订单号
+  int64 orderStatus = 5; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+  string attach = 6; //商户自定义字符串
+  string payUrl = 7; //收银台地址
+  int64 creatorTime = 8; //创建时间
+  int64 updatedTime = 9; //更新时间
+  int64 payTime = 10; //完成时间
+  string phone = 11; //下单手机号
+  string upNo = 12; //上游订单号
+  string creatorIp = 13; //下单时的IP
+  string payIp = 14; //支付的IP
+  int64 payType = 15; //支付类型1支付宝 2微信 3银联 4网银 5线下支付 6其他
+  int64 channelType = 16; //channelType
+  string channelId = 17; //通道编号
+  int64 notifyStatus = 18; //回调状态
+  string notifyUrl = 19; //回调地址
+  int64 notifyTime = 20; //回调时间
+  int64 notifyTimes = 21; //回调时长
+  int64 digestionId = 22; //话单ID
+  string otherData = 23; //其余信息
+}
+
+message UpdateOrderListResp {
+}
+
+message DelOrderListReq {
+  int64 id = 1; //id
+}
+
+message DelOrderListResp {
+}
+
+message GetOrderListByIdReq {
+  int64 id = 1; //id
+}
+message GetOrderByOrderNoReq {
+  string orderNo = 3; //订单编号
+}
+message GetOrderEntityResp {
+  OrderList orderEntity = 1; //orderList
+}
+
+message SearchOrderListReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //主键
+  int64 orderAmount = 4; //订单金额
+  string orderNo = 5; //订单编号
+  string platformNo = 6; //平台订单号
+  int64 orderStatus = 7; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+  string attach = 8; //商户自定义字符串
+  string payUrl = 9; //收银台地址
+  int64 creatorTime = 10; //创建时间
+  int64 updatedTime = 11; //更新时间
+  int64 payTime = 12; //完成时间
+  string phone = 13; //下单手机号
+  string upNo = 14; //上游订单号
+  string creatorIp = 15; //下单时的IP
+  string payIp = 16; //支付的IP
+  int64 payType = 17; //支付类型1支付宝 2微信 3银联 4网银 5线下支付 6其他
+  int64 channelType = 18; //channelType
+  string channelId = 19; //通道编号
+  int64 notifyStatus = 20; //回调状态
+  string notifyUrl = 21; //回调地址
+  int64 notifyTime = 22; //回调时间
+  int64 notifyTimes = 23; //回调时长
+  int64 digestionId = 24; //话单ID
+  string otherData = 25; //其余信息
+}
+
+message SearchOrderListResp {
+  repeated OrderList orderList = 1; //orderList
+  int64 total = 2; //total
+}
+
+
+// 循环查询支付链接
+message LoopQueryPaymentLinkReq {
+  string OrderNo = 1; //订单编号
+  string PlatformNo = 2; //平台订单号
+}
+message LoopQueryPaymentLinkResp {
+  string paymentLink = 1; //支付链接
+}
+// 修改订单状态-根据ID
+message UpdateOrderStatusByIdReq {
+  int64 id = 1; //主键
+  int64 orderStatus = 2; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+}
+message UpdateOrderStatusResp {
+}
+// 修改订单状态-根据平台订单号
+message UpdateOrderStatusByPlatformNoReq {
+  string platformNo = 1; //平台订单号
+  int64 orderStatus = 2; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+}
+// 修改订单状态-根据订单编号
+message UpdateOrderStatusByOrderNoReq {
+  string orderNo = 1; //订单编号
+  int64 orderStatus = 2; //订单状态:0支付中 1已超时 2待确认 6已完成 7未付款 8下单失败
+}
+
+// 修改订单手机号-根据平台订单号
+message UpdateOrderPhoneByPlatformNoReq {
+  string platformNo = 1; //平台订单号
+  string phone = 2; //手机号
+}
+// 修改订单手机号-根据订单编号
+message UpdateOrderPhoneByOrderNoReq {
+  string orderNo = 1; //订单编号
+  string phone = 2; //手机号
+}
+
+// 修改订单上游订单号-根据平台订单号
+message UpdateOrderUpNoByPlatformNoReq {
+  string platformNo = 1; //平台订单号
+  string upNo = 2; //上游订单号
+}
+// 修改订单上游订单号-根据订单编号
+message UpdateOrderUpNoByOrderNoReq {
+  string orderNo = 1; //订单编号
+  string upNo = 2; //上游订单号
+}
+
+// 修改订单收银台地址-根据平台订单号
+message UpdateOrderPayUrlByPlatformNoReq {
+  string platformNo = 1; //平台订单号
+  string payUrl = 2; //收银台地址
+}
+// 修改订单收银台地址-根据订单编号
+message UpdateOrderPayUrlByOrderNoReq {
+  string orderNo = 1; //订单编号
+  string payUrl = 2; //收银台地址
+}
+//--------------------------------digestion order--------------------------------
+message OrderDigestion {
+  int64 id = 1; //id
+  string phone = 2; //phone
+  int64 amount = 3; //amount
+  int64 orderStatus = 4; //orderStatus
+  string phoneLocation = 5; //phoneLocation
+  int64 creatorTime = 6; //creatorTime
+  int64 updatedTime = 7; //updatedTime
+  int64 pullTime = 8; //pullTime
+  int64 digId = 9; //digId
+  int64 orderId = 10; //orderId
+  string creatorIp = 11; //creatorIp
+}
+message OrderDigestionPhoneList{
+  string phone = 1; //phone
+  int64 amount = 2; //amount
+}
+message AddOrderDigestionPhoneListReq {
+  repeated OrderDigestionPhoneList orderDigestionPhoneList = 1; //orderDigestionPhoneList
+}
+message AddOrderDigestionReq {
+  string phone = 1; //phone
+  int64 amount = 2; //amount
+  int64 orderStatus = 3; //orderStatus
+  string phoneLocation = 4; //phoneLocation
+  int64 creatorTime = 5; //creatorTime
+  int64 updatedTime = 6; //updatedTime
+  int64 pullTime = 7; //pullTime
+  int64 digId = 8; //digId
+  int64 orderId = 9; //orderId
+  string creatorIp = 10; //creatorIp
+}
+
+message AddOrderDigestionResp {
+}
+
+message UpdateOrderDigestionReq {
+  int64 id = 1; //id
+  string phone = 2; //phone
+  int64 amount = 3; //amount
+  int64 orderStatus = 4; //orderStatus
+  string phoneLocation = 5; //phoneLocation
+  int64 creatorTime = 6; //creatorTime
+  int64 updatedTime = 7; //updatedTime
+  int64 pullTime = 8; //pullTime
+  int64 digId = 9; //digId
+  int64 orderId = 10; //orderId
+  string creatorIp = 11; //creatorIp
+  string uid = 12; //uid
+}
+
+message UpdateOrderDigestionResp {
+}
+
+message DelOrderDigestionReq {
+  repeated int64 id = 1; //id
+  string uid = 2; //uid
+}
+
+message DelOrderDigestionResp {
+}
+
+message GetOrderDigestionByIdReq {
+  int64 id = 1; //id
+}
+
+message GetOrderDigestionByIdResp {
+  OrderDigestion orderDigestion = 1; //orderDigestion
+}
+
+message SearchOrderDigestionReq {
+  int64 page = 1; //page
+  int64 pageSize = 2; //pageSize
+  int64 id = 3; //id
+  string phone = 4; //phone
+  int64 amount = 5; //amount
+  int64 orderStatus = 6; //orderStatus
+  string phoneLocation = 7; //phoneLocation
+  int64 creatorTime = 8; //creatorTime
+  int64 updatedTime = 9; //updatedTime
+  int64 pullTime = 10; //pullTime
+  int64 digId = 11; //digId
+  int64 orderId = 12; //orderId
+  string creatorIp = 13; //creatorIp
+}
+
+message SearchOrderDigestionResp {
+  repeated OrderDigestion orderDigestion = 1; //orderDigestion
+  int64 total = 2; //total
+}
+
+message GetRandomOrderDigestionReq {// 随机抽取一个订单
+  int64 amount = 1; //amount
+}
+message GetRandomOrderDigestionResp {
+  OrderDigestion orderDigestion = 1; //orderDigestion
+}
+
+// ------------------------------------
+// Rpc Func
+// ------------------------------------
+service DigestionOrderRpc{
+  //-----------------------digestion order-----------------------
+  rpc AddOrderDigestion(AddOrderDigestionReq) returns (AddOrderDigestionResp);
+  rpc AddOrderDigestionPhoneList(AddOrderDigestionPhoneListReq) returns (AddOrderDigestionResp);
+  rpc UpdateOrderDigestion(UpdateOrderDigestionReq) returns (UpdateOrderDigestionResp);
+  rpc DelOrderDigestion(DelOrderDigestionReq) returns (DelOrderDigestionResp);
+  rpc GetOrderDigestionById(GetOrderDigestionByIdReq) returns (GetOrderDigestionByIdResp);
+  rpc SearchOrderDigestion(SearchOrderDigestionReq) returns (SearchOrderDigestionResp);
+  rpc GetRandomOrderDigestion(GetRandomOrderDigestionReq) returns (GetRandomOrderDigestionResp);  // 随机抽取一个订单
+}
+service OrderListRpc{
+  //-----------------------orderList-----------------------
+  rpc AddOrderList(AddOrderListReq) returns (AddOrderListResp);
+  rpc UpdateOrderList(UpdateOrderListReq) returns (UpdateOrderListResp);
+  rpc DelOrderList(DelOrderListReq) returns (DelOrderListResp);
+  rpc SearchOrderList(SearchOrderListReq) returns (SearchOrderListResp);
+
+  //-----------------------获取订单信息-----------------------
+  rpc GetOrderListById(GetOrderListByIdReq) returns (GetOrderEntityResp);
+  rpc GetOrderByOrderNo(GetOrderByOrderNoReq) returns (GetOrderEntityResp);
+
+
+  //-----------------------循环查询支付链接-----------------------
+  rpc LoopQueryPaymentLink(LoopQueryPaymentLinkReq) returns (LoopQueryPaymentLinkResp);
+
+
+
+  //-----------------------修改订单状态-----------------------
+  // 根据ID
+  rpc UpdateOrderStatusById(UpdateOrderStatusByIdReq) returns (UpdateOrderStatusResp);
+  // 根据平台订单号
+  rpc UpdateOrderStatusByPlatformNo(UpdateOrderStatusByPlatformNoReq) returns (UpdateOrderStatusResp);
+  // 根据订单编号
+  rpc UpdateOrderStatusByOrderNo(UpdateOrderStatusByOrderNoReq) returns (UpdateOrderStatusResp);
+  //-----------------------修改订单手机号-----------------------
+  // 根据平台订单号修改手机号
+  rpc UpdateOrderPhoneByPlatformNo(UpdateOrderPhoneByPlatformNoReq) returns (UpdateOrderStatusResp);
+  // 根据订单编号修改手机号
+  rpc UpdateOrderPhoneByOrderNo(UpdateOrderPhoneByOrderNoReq) returns (UpdateOrderStatusResp);
+  //-----------------------修改上游单号-----------------------
+  // 根据平台订单号修改上游单号
+  rpc UpdateUpNoByPlatformNo(UpdateOrderUpNoByPlatformNoReq) returns (UpdateOrderStatusResp);
+  // 根据订单编号修改上游单号
+  rpc UpdateUpNoByOrderNo(UpdateOrderUpNoByOrderNoReq) returns (UpdateOrderStatusResp);
+  //-----------------------修改收银台地址-----------------------
+  // 根据平台订单号修改收银台地址
+  rpc UpdatePayUrlByPlatformNo(UpdateOrderPayUrlByPlatformNoReq) returns (UpdateOrderStatusResp);
+  // 根据订单编号修改收银台地址
+  rpc UpdatePayUrlByOrderNo(UpdateOrderPayUrlByOrderNoReq) returns (UpdateOrderStatusResp);
+}
+

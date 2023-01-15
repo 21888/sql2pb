@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package ="./pb";
+
+package pb;
+// ------------------------------------
+// Messages
+// ------------------------------------ 
+
+//--------------------------------digestion order--------------------------------
+message TestReq {
+  int64 id = 1; //id
+  string phone = 2; //phone
+  int64 amount = 3; //amount
+  int64 orderStatus = 4; //orderStatus
+  string phoneLocation = 5; //phoneLocation
+  int64 creatorTime = 6; //creatorTime
+  int64 updatedTime = 7; //updatedTime
+  int64 pullTime = 8; //pullTime
+  int64 digId = 9; //digId
+  int64 orderId = 10; //orderId
+  string creatorIp = 11; //creatorIp
+}
+
+message TestResp {
+  string phone = 1; //phone
+  int64 amount = 2; //amount
+  int64 orderStatus = 3; //orderStatus
+  string phoneLocation = 4; //phoneLocation
+  int64 creatorTime = 5; //creatorTime
+  int64 updatedTime = 6; //updatedTime
+  int64 pullTime = 7; //pullTime
+  int64 digId = 8; //digId
+  int64 orderId = 9; //orderId
+  string creatorIp = 10; //creatorIp
+}
+
+// ------------------------------------ 
+// Rpc Func
+// ------------------------------------ 
+
+service test{
+
+	 //-----------------------digestion order----------------------- 
+
+
+}
